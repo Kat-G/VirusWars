@@ -1,4 +1,4 @@
-package connect;
+package connect.model;
 
 public class ModelBuilder {
     static Model m = new Model();

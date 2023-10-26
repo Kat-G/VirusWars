@@ -1,4 +1,4 @@
-import connect.Controllers.GameBoardController;
+import connect.controllers.GameBoardController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -94,6 +94,6 @@ public class GameUI {
 
         // Предполагается, что у вас есть метод updateBoard(int[][] cells), который обновляет интерфейс с новым состоянием поля.
         int[][] initialCells = new int[10][10];
-        //gameUI.updateBoard(initialCells);
+        gameUI.updateBoard(initialCells);
     }
 }

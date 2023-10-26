@@ -31,4 +31,6 @@ public class Player {
     public void resMoves(int a) {
         this.moves = 0;
     }
+
+    public String getPlayerName() { return playerName; }
 }

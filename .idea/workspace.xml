@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f090f1be-f324-4ac8-8db7-439dde134d92" name="Changes" comment="Add classes">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameBoard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/Controllers/GameBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/controllers/GameBoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/Controllers/PlayersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/controllers/PlayersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/Model.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/ModelBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/resp/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/resp/Sender.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2X7SHvGOsybdfkvYi5RdmNbWjI3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="false" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/PC/IdeaProjects/SocketShootGame",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="connect" />
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="GameUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GameUI" />
+      <module name="VirusWars" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GameUI" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f090f1be-f324-4ac8-8db7-439dde134d92" name="Changes" comment="" />
+      <created>1697978543133</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1697978543133</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Add classes">
+      <created>1698328916822</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698328916822</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add classes" />
+  </component>
+</project>

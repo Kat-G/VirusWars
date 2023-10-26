@@ -1,4 +1,4 @@
-package connect.Controllers;
+package connect.controllers;
 
 public class GameBoardController {
     // 0 - свободная ячейка
