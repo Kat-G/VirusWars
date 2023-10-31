@@ -47,6 +47,7 @@ public class ClientAtServer implements Runnable {
                 Request msg = sender.getRequest();
 
                 switch (msg.getClientActions()){
+                    case FIRST_MOVE -> { model.firstMove(msg.getX(),msg.getY(),this.player); }
                     case MOVE -> { model.setMove(msg.getX(),msg.getY(),this.player); }
                     case SKIP -> { model.skipMove(this.player); }
                 }

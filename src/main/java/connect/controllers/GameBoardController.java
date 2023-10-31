@@ -52,10 +52,10 @@ public class GameBoardController {
         System.out.println("I'm in GameBoard!");
         if (firstMove) {
             if (player == 1) {
-                cells[9][0] = player;
+                cells[size-1][0] = player;
             }
             else {
-                cells[0][9] = player;
+                cells[0][size-1] = player;
             }
             System.out.println("if-player: " + player);
         }

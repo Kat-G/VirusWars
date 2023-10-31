@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f090f1be-f324-4ac8-8db7-439dde134d92" name="Changes" comment="First working version">
+    <list default="true" id="f090f1be-f324-4ac8-8db7-439dde134d92" name="Changes" comment="Added the end of the game and the determination of the winner">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/ClientAtServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/ClientAtServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/controllers/GameBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/controllers/GameBoardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/connect/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/resp/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/resp/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/resp/ClientActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/resp/ClientActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameUI$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GameUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/connect/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/connect/model/Model.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/resp/Request.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/connect/resp/Request.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +65,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client1">
+  <component name="RunManager" selected="Application.Client2">
     <configuration name="Client1" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="GameUI" />
       <module name="VirusWars" />
@@ -122,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698751207661</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added the end of the game and the determination of the winner">
+      <created>1698762776550</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1698762776550</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,6 +152,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add classes" />
     <MESSAGE value="First working version" />
-    <option name="LAST_COMMIT_MESSAGE" value="First working version" />
+    <MESSAGE value="Added the end of the game and the determination of the winner" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the end of the game and the determination of the winner" />
   </component>
 </project>

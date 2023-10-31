@@ -39,7 +39,9 @@ public class Model {
         for (Player player: players.getPlayers())
             System.out.println(player.isReady());
 
-        new Thread(this::gameLoop).start();
+        if (players.getPlayers().size() == 2){
+            new Thread(this::gameLoop).start();
+        }
     }
 
     private void gameLoop() {
@@ -85,20 +87,27 @@ public class Model {
     private void makeMove(int x, int y, Player player) {
         System.out.println("Index from makeMove: " + getIndex(player));
         gameBoardController.Move(x, y, getIndex(player), player.isFirstMove());
-        if (player.isFirstMove()){
-            player.setFirstMove(false);
-        }
         player.addMoves(1);
         checkTurn(player);
         //update();
         gameBoardController.displayBoard();
 
-        /*
         if (checkVictory(player)) {
-            // Устанавливаем победителя и завершаем игру
+            System.out.println("Winner: " + winner);
             setWinner(player.getPlayerName());
-            restart();
-        }*/
+            //restart();
+        }
+    }
+
+    public void firstMove(int x, int y, Player player) {
+        System.out.println("Index from makeMove: " + getIndex(player));
+        gameBoardController.Move(x, y, getIndex(player), player.isFirstMove());
+        if (player.isFirstMove()){
+            player.setFirstMove(false);
+        }
+        checkTurn(player);
+        //update();
+        gameBoardController.displayBoard();
     }
 
     public void skipMove(Player player) {
@@ -138,6 +147,7 @@ public class Model {
                 }
             }
         }
+        winner = player.getPlayerName();
         return true; // Вражеских символов не найдено, победа
     }
 

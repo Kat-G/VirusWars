@@ -23,6 +23,7 @@ public class GameUI implements IObserver {
     InetAddress ip = null;
     Sender sender;
     String playerName;
+    int size = 10;
 
     private Model m = ModelBuilder.build();
 
@@ -78,11 +79,11 @@ public class GameUI implements IObserver {
 
         frame = new JFrame("Война вирусов");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 400);
+        frame.setSize(500, 400);
 
-        JPanel boardPanel = new JPanel(new GridLayout(10, 10));
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
+        JPanel boardPanel = new JPanel(new GridLayout(size, size));
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 JLabel cell = new JLabel();
                 cell.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 cell.setHorizontalAlignment(JLabel.CENTER);
@@ -114,6 +115,8 @@ public class GameUI implements IObserver {
             public void actionPerformed(ActionEvent e) {
                 // Добавьте здесь логику для подключения к серверу
                 connectToServer();
+                sender.sendRequest(new Request(ClientActions.FIRST_MOVE,0,0));
+                System.out.println("Player:" + playerName);
             }
         });
 
@@ -137,15 +140,13 @@ public class GameUI implements IObserver {
         });
 
         frame.setVisible(true);
-
-        connectToServer();
     }
 
     // Метод для обновления игрового поля в интерфейсе
     public void updateBoard(int[][] cells) {
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                JLabel cell = (JLabel) ((JPanel) frame.getContentPane().getComponent(0)).getComponent(i * 10 + j);
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                JLabel cell = (JLabel) ((JPanel) frame.getContentPane().getComponent(0)).getComponent(i * size + j);
                 if (cells[i][j] == 0) {
                     cell.setText("(" + i + "," + j + ")");
                     cell.setForeground(Color.GRAY);
@@ -169,19 +170,22 @@ public class GameUI implements IObserver {
 
     private void checkWinner() {
         if (m.getWinner() != null) {
+            System.out.println("Winner:" + m.getWinner());
             showWinMessage(m.getWinner());
+            m.setWinner(null);
         }
     }
 
     public void showWinMessage(String winner) {
+        /*
         String message;
         if (winner == playerName){
             message = "Вы победили!";
         }
         else {
             message = "Победил другой игрок!";
-        }
-        JOptionPane.showMessageDialog(null, message, "Победа", JOptionPane.INFORMATION_MESSAGE);
+        }*/
+        JOptionPane.showMessageDialog(frame, "Winner: " + winner, "Победа", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @Override
