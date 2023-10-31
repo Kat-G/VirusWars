@@ -1,15 +1,77 @@
+import connect.IObserver;
 import connect.controllers.GameBoardController;
+import connect.model.Model;
+import connect.model.ModelBuilder;
+import connect.resp.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
 
-public class GameUI {
+public class GameUI implements IObserver {
     private final GameBoardController gameBoard;
     private final JFrame frame;
     private final JTextField xField;
     private final JTextField yField;
+
+    private Socket socket;
+    int port = 3124;
+    InetAddress ip = null;
+    Sender sender;
+    String playerName;
+
+    private Model m = ModelBuilder.build();
+
+    public void initialize() {
+        m.addObserver(this);
+    }
+
+    public void dataInit(Socket socket) {
+        this.socket = socket;
+        sender = new Sender(socket);
+
+    }
+    public void connectToServer() {
+        try {
+            ip = InetAddress.getLocalHost();
+            socket = new Socket(ip, port);
+
+            playerName = "Player";
+            Sender sender = new Sender(socket);
+            sender.sendRequest(new Request(playerName));
+            Request msg = sender.getRequest();
+
+            if (msg.getServReactions() == ServReactions.ACCEPT){
+                new Thread(
+                        ()->
+                        {
+                            try {
+                                while (true) {
+                                    Response ra = sender.getResp();
+                                    m.setClients(ra.clients);
+                                    m.setGameBoard(ra.gameBoard);
+                                    m.setWinner(ra.winner);
+                                    m.update();
+
+                                    updateBoard(m.getGameBoard());
+                                }
+
+                            } catch (IOException ex) {
+
+                            }
+
+                        }
+                ).start();
+                dataInit(socket);
+            } else {
+               //alertError(msg.getServReactions());
+            }
+        } catch (IOException ignored) {   }
+    }
 
     public GameUI(GameBoardController gameBoard) {
         this.gameBoard = gameBoard;
@@ -44,13 +106,16 @@ public class GameUI {
         frame.add(boardPanel, BorderLayout.CENTER);
         frame.add(inputPanel, BorderLayout.SOUTH);
 
+
+
         moveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int x = Integer.parseInt(xField.getText());
                 int y = Integer.parseInt(yField.getText());
+
                 // Отправить ход на сервер
-                // gameBoard.makeMove(x, y, currentPlayer);
+                sender.sendRequest(new Request(ClientActions.MOVE,x,y));
             }
         });
 
@@ -58,11 +123,13 @@ public class GameUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Отказ от хода
-                // gameBoard.passMove(currentPlayer);
+                sender.sendRequest(new Request(ClientActions.SKIP));
             }
         });
 
         frame.setVisible(true);
+
+        connectToServer();
     }
 
     // Метод для обновления игрового поля в интерфейсе
@@ -87,13 +154,21 @@ public class GameUI {
         }
     }
 
+    @Override
+    public void update() {
+        System.out.println("Hi from Client!");
+        updateBoard(m.getGameBoard());
+    }
+
     public static void main(String[] args) {
         // Пример использования
         GameBoardController gameBoard = new GameBoardController(10);
         GameUI gameUI = new GameUI(gameBoard);
 
         // Предполагается, что у вас есть метод updateBoard(int[][] cells), который обновляет интерфейс с новым состоянием поля.
-        int[][] initialCells = new int[10][10];
-        gameUI.updateBoard(initialCells);
+        //int[][] initialCells = new int[10][10];
+        //gameUI.updateBoard(initialCells);
     }
+
+
 }

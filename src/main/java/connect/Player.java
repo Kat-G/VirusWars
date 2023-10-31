@@ -4,7 +4,9 @@ public class Player {
     private String playerName;
     private int moves = 0;
     private int counts = 0;
+
     private boolean isReady = false;
+    private boolean isFirstMove = true;
 
     public Player(String playerName) {
         this.playerName = playerName;
@@ -28,9 +30,29 @@ public class Player {
         this.moves += a;
     }
 
-    public void resMoves(int a) {
+    public void resetMoves() {
         this.moves = 0;
     }
 
+    public void setReady(boolean ready) {
+        isReady = ready;
+    }
+
+    public boolean isReady() {
+        return isReady;
+    }
+
+    public int getMoves() {
+        return moves;
+    }
+
     public String getPlayerName() { return playerName; }
+
+    public boolean isFirstMove() {
+        return isFirstMove;
+    }
+
+    public void setFirstMove(boolean firstMove) {
+        isFirstMove = firstMove;
+    }
 }

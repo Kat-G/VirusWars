@@ -29,6 +29,7 @@ public class ClientAtServer implements Runnable {
     public void sendInfoToClient() {
         Response serverResp = new Response();
         serverResp.clients = model.getClients();
+        serverResp.gameBoard = model.getGameBoard();
         serverResp.winner = model.getWinner();
         sender.sendResp(serverResp);
     }
@@ -40,13 +41,14 @@ public class ClientAtServer implements Runnable {
             model.addClient(player);
             server.bcast();
 
+            model.start(server);
             while(true)
             {
                 Request msg = sender.getRequest();
 
                 switch (msg.getClientActions()){
-                    //case STOP: {  model.pause(this.getPlayerName()); break; }
-
+                    case MOVE -> { model.setMove(msg.getX(),msg.getY(),this.player); }
+                    case SKIP -> { model.skipMove(this.player); }
                 }
             }
         } catch (IOException ignored) {

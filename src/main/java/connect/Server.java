@@ -44,7 +44,7 @@ public class Server {
                 sender = new Sender(cs);
                 Request msg = sender.getRequest();
                 String respName = msg.getPlayerName();
-                if (tryAddClient(cs, respName)) {
+                if (tryAddClient(cs)) {
                     System.out.println(respName + " Connected");
                 } else {
                     cs.close();
@@ -54,27 +54,24 @@ public class Server {
         } catch (IOException ignored) {}
     }
 
-    private boolean tryAddClient(Socket sock, String name) {
+    private boolean tryAddClient(Socket sock) {
         if (allClients.size() >= 2) {
             sender.sendRequest(new Request(ServReactions.ERROR));
             return false;
+        } else {
+            String name;
+            if (allClients.isEmpty()) {
+                name = "First";
+            } else {
+               name = "Second";
+            }
+                sender.sendRequest(new Request(ServReactions.ACCEPT));
+                ClientAtServer c = new ClientAtServer(sock, this, name);
+                allClients.add(c);
+                service.submit(c);
+                return true;
         }
-        if (allClients.isEmpty() ||
-                allClients.stream()
-                        .filter(clientAtServer -> clientAtServer.getPlayerName().equals(name))
-                        .findFirst()
-                        .orElse(null) == null) {
-            sender.sendRequest(new Request(ServReactions.ACCEPT));
-            ClientAtServer c = new ClientAtServer(sock, this, name);
-            allClients.add(c);
-            service.submit(c);
-            return true;
-        }
-        sender.sendRequest(new Request(ServReactions.ERROR));
-        return false;
     }
-
-
 
     public static void main(String[] args) {
         new Server().serverStart();
