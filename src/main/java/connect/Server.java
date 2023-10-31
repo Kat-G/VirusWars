@@ -65,11 +65,13 @@ public class Server {
             } else {
                name = "Second";
             }
-                sender.sendRequest(new Request(ServReactions.ACCEPT));
-                ClientAtServer c = new ClientAtServer(sock, this, name);
-                allClients.add(c);
-                service.submit(c);
-                return true;
+            Request request= new Request(ServReactions.ACCEPT);
+            request.setPlayerName(name);
+            sender.sendRequest(request);
+            ClientAtServer c = new ClientAtServer(sock, this, name);
+            allClients.add(c);
+            service.submit(c);
+            return true;
         }
     }
 

@@ -12,12 +12,6 @@ public class Model {
     private final ArrayList<IObserver> observers = new ArrayList<>(); //массив обозревателей
     private final PlayersController players = new PlayersController();
     private final GameBoardController gameBoardController = new GameBoardController(10);
-    private Player currentPlayer; // Текущий игрок, чей ход
-    private int remainingMoves; // Сколько ходов осталось текущему игроку
-    private boolean turnInProgress; // Флаг, указывающий, что текущий ход еще не завершен
-
-    private int next_x;
-    private int next_y;
 
     private String winner = null;
     private boolean Reset = false;
@@ -98,19 +92,13 @@ public class Model {
         checkTurn(player);
         //update();
         gameBoardController.displayBoard();
+
         /*
-        if (turnInProgress && player == currentPlayer && remainingMoves > 0) {
-            // Обработка хода - например, вызов метода makeMove у gameBoardController
-            gameBoardController.Move(x, y, players.getPlayers().indexOf(player.getPlayerName()));
-            remainingMoves--;
-
-            if (remainingMoves == 0) {
-                endTurn(player); // Если ходы закончились, завершаем ход
-            }
-
-            update();
-        }
-         */
+        if (checkVictory(player)) {
+            // Устанавливаем победителя и завершаем игру
+            setWinner(player.getPlayerName());
+            restart();
+        }*/
     }
 
     public void skipMove(Player player) {
@@ -124,10 +112,6 @@ public class Model {
         }
     }
 
-    private void endTurn(Player player) {
-        player.resetMoves();
-        player.setReady(false);
-    }
 
     public void setMove(int x, int y, Player player){
         System.out.println("I'm in 'setMove'! Player: " + player.getPlayerName());
@@ -139,11 +123,22 @@ public class Model {
     private void restart() {
         Reset = true;
         players.reset();
+        gameBoardController.reset();
         this.init(s);
     }
 
-    private void checkWinner() {
-
+    private boolean checkVictory(Player player) {
+        int[][] cells = gameBoardController.getCells();
+        int enemy = (getIndex(player) == 1 ? 2 : 1);
+        // Проверка, остались ли на поле вражеские символы
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells[i].length; j++) {
+                if (cells[i][j] == enemy) {
+                    return false; // Найден вражеский символ, победы нет
+                }
+            }
+        }
+        return true; // Вражеских символов не найдено, победа
     }
 
 

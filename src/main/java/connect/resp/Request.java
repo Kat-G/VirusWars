@@ -26,4 +26,5 @@ public class Request {
     public int getX() { return x; }
     public int getY() { return y; }
     public String getPlayerName() { return playerName; }
+    public void setPlayerName(String playerName) { this.playerName = playerName; }
 }

@@ -44,7 +44,7 @@ public class GameUI implements IObserver {
             Sender sender = new Sender(socket);
             sender.sendRequest(new Request(playerName));
             Request msg = sender.getRequest();
-
+            playerName = msg.getPlayerName();
             if (msg.getServReactions() == ServReactions.ACCEPT){
                 new Thread(
                         ()->
@@ -78,7 +78,7 @@ public class GameUI implements IObserver {
 
         frame = new JFrame("Война вирусов");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
+        frame.setSize(600, 400);
 
         JPanel boardPanel = new JPanel(new GridLayout(10, 10));
         for (int i = 0; i < 10; i++) {
@@ -95,6 +95,7 @@ public class GameUI implements IObserver {
         yField = new JTextField(2);
         JButton moveButton = new JButton("Сделать ход");
         JButton passButton = new JButton("Отказаться от хода");
+        JButton connectButton = new JButton("Подключиться");
 
         inputPanel.add(new JLabel("X:"));
         inputPanel.add(xField);
@@ -102,11 +103,19 @@ public class GameUI implements IObserver {
         inputPanel.add(yField);
         inputPanel.add(moveButton);
         inputPanel.add(passButton);
+        inputPanel.add(connectButton);
 
         frame.add(boardPanel, BorderLayout.CENTER);
         frame.add(inputPanel, BorderLayout.SOUTH);
 
 
+        connectButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Добавьте здесь логику для подключения к серверу
+                connectToServer();
+            }
+        });
 
         moveButton.addActionListener(new ActionListener() {
             @Override
@@ -138,11 +147,14 @@ public class GameUI implements IObserver {
             for (int j = 0; j < 10; j++) {
                 JLabel cell = (JLabel) ((JPanel) frame.getContentPane().getComponent(0)).getComponent(i * 10 + j);
                 if (cells[i][j] == 0) {
-                    cell.setText(" ");
+                    cell.setText("(" + i + "," + j + ")");
+                    cell.setForeground(Color.GRAY);
                 } else if (cells[i][j] == 1) {
                     cell.setText("X");
+                    cell.setForeground(Color.BLACK);
                 } else if (cells[i][j] == 2) {
                     cell.setText("O");
+                    cell.setForeground(Color.BLACK);
                 } else if (cells[i][j] == 3) {
                     cell.setText("X");
                     cell.setForeground(Color.RED);
@@ -152,6 +164,24 @@ public class GameUI implements IObserver {
                 }
             }
         }
+        checkWinner();
+    }
+
+    private void checkWinner() {
+        if (m.getWinner() != null) {
+            showWinMessage(m.getWinner());
+        }
+    }
+
+    public void showWinMessage(String winner) {
+        String message;
+        if (winner == playerName){
+            message = "Вы победили!";
+        }
+        else {
+            message = "Победил другой игрок!";
+        }
+        JOptionPane.showMessageDialog(null, message, "Победа", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @Override
