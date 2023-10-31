@@ -24,6 +24,7 @@ public class GameUI implements IObserver {
     Sender sender;
     String playerName;
     int size = 10;
+    boolean flag = true;
 
     private Model m = ModelBuilder.build();
 
@@ -69,7 +70,6 @@ public class GameUI implements IObserver {
                 ).start();
                 dataInit(socket);
             } else {
-               //alertError(msg.getServReactions());
             }
         } catch (IOException ignored) {   }
     }
@@ -142,7 +142,6 @@ public class GameUI implements IObserver {
         frame.setVisible(true);
     }
 
-    // Метод для обновления игрового поля в интерфейсе
     public void updateBoard(int[][] cells) {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
@@ -169,10 +168,10 @@ public class GameUI implements IObserver {
     }
 
     private void checkWinner() {
-        if (m.getWinner() != null) {
+        if (m.getWinner() != null && flag) {
             System.out.println("Winner:" + m.getWinner());
             showWinMessage(m.getWinner());
-            m.setWinner(null);
+            flag = false;
         }
     }
 
@@ -198,10 +197,6 @@ public class GameUI implements IObserver {
         // Пример использования
         GameBoardController gameBoard = new GameBoardController(10);
         GameUI gameUI = new GameUI(gameBoard);
-
-        // Предполагается, что у вас есть метод updateBoard(int[][] cells), который обновляет интерфейс с новым состоянием поля.
-        //int[][] initialCells = new int[10][10];
-        //gameUI.updateBoard(initialCells);
     }
 
 
