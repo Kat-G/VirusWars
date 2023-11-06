@@ -1,15 +1,15 @@
-package connect.resp;
+package connect.sender;
 
 public class Request {
-    ClientActions clientActions;
+    PlayerActions playerActions;
     ServReactions servReactions;
     String playerName;
     int x, y;
-    public Request(ClientActions clientActions) {
-        this.clientActions = clientActions;
+    public Request(PlayerActions playerActions) {
+        this.playerActions = playerActions;
     }
-    public Request(ClientActions clientActions, int x, int y) {
-        this.clientActions = clientActions;
+    public Request(PlayerActions playerActions, int x, int y) {
+        this.playerActions = playerActions;
         this.x = x;
         this.y = y;
     }
@@ -19,8 +19,8 @@ public class Request {
     public Request(String name) {
         this.playerName = name;
     }
-    public ClientActions getClientActions() {
-        return clientActions;
+    public PlayerActions getClientActions() {
+        return playerActions;
     }
     public ServReactions getServReactions() { return servReactions; }
     public int getX() { return x; }

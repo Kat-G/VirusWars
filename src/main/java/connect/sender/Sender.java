@@ -1,4 +1,4 @@
-package connect.resp;
+package connect.sender;
 
 import com.google.gson.Gson;
 
@@ -6,17 +6,15 @@ import java.io.*;
 import java.net.Socket;
 
 public class Sender {
-    private InputStream is;
-    private OutputStream os;
     private DataInputStream dis;
     private DataOutputStream dos;
-    private Gson gson = new Gson();
+    private final Gson gson = new Gson();
 
     public Sender(Socket socket){
         try {
-            os = socket.getOutputStream();
+            OutputStream os = socket.getOutputStream();
             dos = new DataOutputStream(os);
-            is = socket.getInputStream();
+            InputStream is = socket.getInputStream();
             dis = new DataInputStream(is);
         } catch (IOException ex) {  }
     }

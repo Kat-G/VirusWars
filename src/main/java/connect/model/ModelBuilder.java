@@ -1,8 +1,8 @@
 package connect.model;
 
 public class ModelBuilder {
-    static Model m = new Model();
+    static Model model = new Model();
     static public Model build() {
-        return m;
+        return model;
     }
 }

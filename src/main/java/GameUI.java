@@ -1,8 +1,6 @@
-import connect.IObserver;
-import connect.controllers.GameBoardController;
 import connect.model.Model;
 import connect.model.ModelBuilder;
-import connect.resp.*;
+import connect.sender.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,8 +10,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 
-public class GameUI implements IObserver {
-    private final GameBoardController gameBoard;
+public class GameUI{
     private final JFrame frame;
     private final JTextField xField;
     private final JTextField yField;
@@ -22,15 +19,12 @@ public class GameUI implements IObserver {
     int port = 3124;
     InetAddress ip = null;
     Sender sender;
-    String playerName;
+    String playerName = "Player";
     int size = 10;
-    boolean flag = true;
+    boolean show_flag = true;
+    private final Model game_model = ModelBuilder.build();
+    JLabel statusLabel = new JLabel();
 
-    private Model m = ModelBuilder.build();
-
-    public void initialize() {
-        m.addObserver(this);
-    }
 
     public void dataInit(Socket socket) {
         this.socket = socket;
@@ -42,7 +36,6 @@ public class GameUI implements IObserver {
             ip = InetAddress.getLocalHost();
             socket = new Socket(ip, port);
 
-            playerName = "Player";
             Sender sender = new Sender(socket);
             sender.sendRequest(new Request(playerName));
             Request msg = sender.getRequest();
@@ -53,29 +46,28 @@ public class GameUI implements IObserver {
                         {
                             try {
                                 while (true) {
-                                    Response ra = sender.getResp();
-                                    m.setClients(ra.clients);
-                                    m.setGameBoard(ra.gameBoard);
-                                    m.setWinner(ra.winner);
-                                    m.update();
+                                    Response resp = sender.getResp();
+                                    game_model.setClients(resp.players);
+                                    game_model.setGameBoard(resp.gameBoard);
+                                    game_model.setWinner(resp.winner);
+                                    game_model.setCurrentPlayer(resp.currentPlayer);
 
-                                    updateBoard(m.getGameBoard());
+                                    updateGameBoard(game_model.getGameBoard());
                                 }
 
                             } catch (IOException ex) {
-
                             }
 
                         }
                 ).start();
                 dataInit(socket);
             } else {
+                System.out.println("Error connect to server");
             }
         } catch (IOException ignored) {   }
     }
 
-    public GameUI(GameBoardController gameBoard) {
-        this.gameBoard = gameBoard;
+    public GameUI() {
 
         frame = new JFrame("Война вирусов");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -108,14 +100,13 @@ public class GameUI implements IObserver {
 
         frame.add(boardPanel, BorderLayout.CENTER);
         frame.add(inputPanel, BorderLayout.SOUTH);
-
+        frame.add(statusLabel, BorderLayout.NORTH);
 
         connectButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Добавьте здесь логику для подключения к серверу
                 connectToServer();
-                sender.sendRequest(new Request(ClientActions.FIRST_MOVE,0,0));
+                sender.sendRequest(new Request(PlayerActions.FIRST_MOVE,0,0));
                 System.out.println("Player:" + playerName);
             }
         });
@@ -126,23 +117,25 @@ public class GameUI implements IObserver {
                 int x = Integer.parseInt(xField.getText());
                 int y = Integer.parseInt(yField.getText());
 
-                // Отправить ход на сервер
-                sender.sendRequest(new Request(ClientActions.MOVE,x,y));
+                sender.sendRequest(new Request(PlayerActions.MOVE,x,y));
             }
         });
 
         passButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Отказ от хода
-                sender.sendRequest(new Request(ClientActions.SKIP));
+                sender.sendRequest(new Request(PlayerActions.SKIP));
             }
         });
 
         frame.setVisible(true);
     }
 
-    public void updateBoard(int[][] cells) {
+    public void updateStatusLabel(String playerName, String currentPlayer, int remainingMoves) {
+        statusLabel.setText("Игрок: " + playerName + " | Ходит: " + currentPlayer + " | Осталось ходов: " + (3-remainingMoves));
+    }
+
+    public void updateGameBoard(int[][] cells) {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 JLabel cell = (JLabel) ((JPanel) frame.getContentPane().getComponent(0)).getComponent(i * size + j);
@@ -164,40 +157,23 @@ public class GameUI implements IObserver {
                 }
             }
         }
+        updateStatusLabel(playerName, game_model.getCurrentPlayer().getPlayerName(), game_model.getCurrentPlayer().getMoves());
         checkWinner();
     }
 
     private void checkWinner() {
-        if (m.getWinner() != null && flag) {
-            System.out.println("Winner:" + m.getWinner());
-            showWinMessage(m.getWinner());
-            flag = false;
+        if (game_model.getWinner() != null && show_flag) {
+            System.out.println("Winner:" + game_model.getWinner());
+            showWinMessage(game_model.getWinner());
+            show_flag = false;
         }
     }
 
     public void showWinMessage(String winner) {
-        /*
-        String message;
-        if (winner == playerName){
-            message = "Вы победили!";
-        }
-        else {
-            message = "Победил другой игрок!";
-        }*/
         JOptionPane.showMessageDialog(frame, "Winner: " + winner, "Победа", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    @Override
-    public void update() {
-        System.out.println("Hi from Client!");
-        updateBoard(m.getGameBoard());
-    }
-
     public static void main(String[] args) {
-        // Пример использования
-        GameBoardController gameBoard = new GameBoardController(10);
-        GameUI gameUI = new GameUI(gameBoard);
+        GameUI gameUI = new GameUI();
     }
-
-
 }

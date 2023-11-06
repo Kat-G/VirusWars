@@ -1,10 +1,11 @@
 package connect;
 
+import connect.objects.Player;
 import connect.model.Model;
 import connect.model.ModelBuilder;
-import connect.resp.Request;
-import connect.resp.Response;
-import connect.resp.Sender;
+import connect.sender.Request;
+import connect.sender.Response;
+import connect.sender.Sender;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -13,50 +14,53 @@ public class ClientAtServer implements Runnable {
     Socket socket;
     Server server;
     Sender sender;
-    Model model = ModelBuilder.build();
-    Player player;
+    Model game_model = ModelBuilder.build();
+    connect.objects.Player Player;
 
     public ClientAtServer(Socket socket, Server server, String playerName)  {
         this.socket = socket;
         this.server = server;
-        player = new Player(playerName);
+        Player = new Player(playerName);
         sender = new Sender(socket);
     }
     public String getPlayerName() {
-        return player.getPlayerName();
+        return Player.getPlayerName();
     }
 
     public void sendInfoToClient() {
         Response serverResp = new Response();
-        serverResp.clients = model.getClients();
-        serverResp.gameBoard = model.getGameBoard();
-        serverResp.winner = model.getWinner();
+        serverResp.players = game_model.getClients();
+        serverResp.gameBoard = game_model.getGameBoard();
+        serverResp.currentPlayer = game_model.getCurrentPlayer();
+        serverResp.winner = game_model.getWinner();
+
         sender.sendResp(serverResp);
     }
 
     @Override
     public void run() {
         try {
-            System.out.println("Cilent thread " + player.getPlayerName() + " started");
-            model.addClient(player);
+            System.out.println("Client thread " + Player.getPlayerName() + " started");
+            game_model.addClient(Player);
+
+            game_model.start();
+
             server.bcast();
 
-            model.start(server);
             while(true)
             {
                 Request msg = sender.getRequest();
 
                 switch (msg.getClientActions()){
-                    case FIRST_MOVE -> { model.firstMove(msg.getX(),msg.getY(),this.player); }
-                    case MOVE -> { model.setMove(msg.getX(),msg.getY(),this.player); }
-                    case SKIP -> { model.skipMove(this.player); }
+                    case FIRST_MOVE -> { game_model.firstMove(msg.getX(),msg.getY(),this.Player); }
+                    case MOVE -> { game_model.setMove(msg.getX(),msg.getY(),this.Player); }
+                    case SKIP -> { game_model.skipMove(this.Player); }
                 }
             }
         } catch (IOException ignored) {
-
         }
     }
     public Player getPlayer() {
-        return player;
+        return Player;
     }
 }

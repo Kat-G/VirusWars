@@ -1,57 +1,39 @@
 package connect.model;
 
-import connect.controllers.GameBoardController;
-import connect.controllers.PlayersController;
-import connect.IObserver;
-import connect.Player;
+import connect.objects.GameBoardController;
+import connect.objects.Player;
 import connect.Server;
 
 import java.util.ArrayList;
 
 public class Model {
-    private final ArrayList<IObserver> observers = new ArrayList<>(); //массив обозревателей
-    private final PlayersController players = new PlayersController();
+    private ArrayList<Player> players = new ArrayList<>();
     private final GameBoardController gameBoardController = new GameBoardController(10);
 
+    private Player currentPlayer;
     private String winner = null;
-    private boolean Reset = false;
     private Server s;
 
-    public void update()
-    {
-        for (IObserver o : observers) {
-            o.update();
-        }
-    }
-
-    /*
-    public void updateScoreTable() {
-        winners.setWinners(db.getAllPlayers());
-        s.bcast();
-    }*/
 
     public void init(Server s) {
         this.s = s;
     }
 
-    public void start(Server s) {
-        players.getPlayers().get(0).setReady(true);
-        for (Player player: players.getPlayers())
+    public void start() {
+        players.get(0).setReady(true);
+        currentPlayer = players.get(0);
+
+        for (Player player: players)
             System.out.println(player.isReady());
 
-        if (players.getPlayers().size() == 2){
+        if (players.size() == 2){
             new Thread(this::gameLoop).start();
         }
     }
 
     private void gameLoop() {
         while (true) {
-            if (Reset) {
-                winner = null;
-                break;
-            }
 
-            //update();
             s.bcast(); //отправка данных с сервера на клиенты
 
             try {
@@ -69,14 +51,15 @@ public class Model {
     }
 
     private void setTurnNextPlayer(Player player) {
-        int currentPlayerIndex = players.getPlayers().indexOf(player);
-        int nextPlayerIndex = (currentPlayerIndex + 1) % players.getPlayers().size();
-        Player nextPlayer = players.getPlayers().get(nextPlayerIndex);
+        int currentPlayerIndex = players.indexOf(player);
+        int nextPlayerIndex = (currentPlayerIndex + 1) % players.size();
+        Player nextPlayer = players.get(nextPlayerIndex);
         nextPlayer.setReady(true);
+        setCurrentPlayer(nextPlayer);
     }
 
     private int getIndex(Player player){
-        if (player.getPlayerName()=="First"){
+        if (player.getPlayerName() == "First"){
             return 1;
         }
         else {
@@ -85,72 +68,55 @@ public class Model {
     }
 
     private void makeMove(int x, int y, Player player) {
-        System.out.println("Index from makeMove: " + getIndex(player));
         gameBoardController.Move(x, y, getIndex(player), player.isFirstMove());
         player.addMoves(1);
         checkTurn(player);
-        //update();
-        gameBoardController.displayBoard();
+
+        //gameBoardController.displayBoard();
 
         if (checkVictory(player)) {
             System.out.println("Winner: " + winner);
             setWinner(player.getPlayerName());
-            //restart();
         }
     }
 
     public void firstMove(int x, int y, Player player) {
-        System.out.println("Index from makeMove: " + getIndex(player));
         gameBoardController.Move(x, y, getIndex(player), player.isFirstMove());
         if (player.isFirstMove()){
             player.setFirstMove(false);
         }
         checkTurn(player);
-        //update();
-        gameBoardController.displayBoard();
+
+        //gameBoardController.displayBoard();
     }
 
     public void skipMove(Player player) {
-        System.out.println("I'm in 'skipMove'!");
-        int currentPlayerIndex = players.getPlayers().indexOf(player);
-        Player nextPlayer = players.getPlayers().get(currentPlayerIndex);
-        if (nextPlayer.isReady()) {
-            System.out.println("I'm in 'skipMove'. It's work!");
+        if (player.isReady() && player.getMoves() == 0) {
             setTurnNextPlayer(player);
-            //update();
         }
     }
 
 
     public void setMove(int x, int y, Player player){
-        System.out.println("I'm in 'setMove'! Player: " + player.getPlayerName());
         if (player.isReady()) {
             makeMove(x,y,player);
         }
     }
 
-    private void restart() {
-        Reset = true;
-        players.reset();
-        gameBoardController.reset();
-        this.init(s);
-    }
-
     private boolean checkVictory(Player player) {
         int[][] cells = gameBoardController.getCells();
         int enemy = (getIndex(player) == 1 ? 2 : 1);
-        // Проверка, остались ли на поле вражеские символы
+
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells[i].length; j++) {
                 if (cells[i][j] == enemy) {
-                    return false; // Найден вражеский символ, победы нет
+                    return false;
                 }
             }
         }
         winner = player.getPlayerName();
-        return true; // Вражеских символов не найдено, победа
+        return true;
     }
-
 
     public String getWinner() {
         return winner;
@@ -159,19 +125,23 @@ public class Model {
         this.winner = winner;
     }
     public void addClient(Player player) {
-        players.addPlayer(player);
+        players.add(player);
     }
-    public  void addObserver(IObserver o)
-    {
-        observers.add(o);
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public void setCurrentPlayer(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
     }
 
     public ArrayList<Player> getClients() {
-        return players.getPlayers();
+        return players;
     }
 
     public void setClients(ArrayList<Player> clientArrayList) {
-        this.players.setPlayers(clientArrayList);
+        this.players = clientArrayList;
     }
 
     public int[][] getGameBoard() { return gameBoardController.getCells(); }

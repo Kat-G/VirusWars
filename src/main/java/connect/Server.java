@@ -2,9 +2,9 @@ package connect;
 
 import connect.model.Model;
 import connect.model.ModelBuilder;
-import connect.resp.Request;
-import connect.resp.Sender;
-import connect.resp.ServReactions;
+import connect.sender.Request;
+import connect.sender.Sender;
+import connect.sender.ServReactions;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -17,23 +17,23 @@ import java.util.concurrent.Executors;
 public class Server {
     int port = 3124;
     InetAddress ip = null;
-    ExecutorService service = Executors.newFixedThreadPool(4); //ограничиваем кол-во клиентких потоков 4
+    ExecutorService service = Executors.newFixedThreadPool(2); // ограничиваем кол-во клиентких потоков 2
     ArrayList<ClientAtServer> allClients = new ArrayList<>();
 
     Sender sender;
     Model model = ModelBuilder.build();
 
 
-
     public void bcast(){ //отправка данных на клиенты
         allClients.forEach(ClientAtServer::sendInfoToClient);
     }
+
     public void serverStart(){
         ServerSocket ss;
         try {
             ip = InetAddress.getLocalHost();
             ss = new ServerSocket(port, 2, ip);
-            System.out.println("Server start\n");
+            System.out.println("Server start");
 
             model.init(this);
 
@@ -45,7 +45,7 @@ public class Server {
                 Request msg = sender.getRequest();
                 String respName = msg.getPlayerName();
                 if (tryAddClient(cs)) {
-                    System.out.println(respName + " Connected");
+                    System.out.println(respName + " connected");
                 } else {
                     cs.close();
                 }
@@ -65,7 +65,7 @@ public class Server {
             } else {
                name = "Second";
             }
-            Request request= new Request(ServReactions.ACCEPT);
+            Request request = new Request(ServReactions.ACCEPT);
             request.setPlayerName(name);
             sender.sendRequest(request);
             ClientAtServer c = new ClientAtServer(sock, this, name);

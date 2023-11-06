@@ -1,10 +1,8 @@
-package connect;
+package connect.objects;
 
 public class Player {
-    private String playerName;
+    private final String playerName;
     private int moves = 0;
-    private int counts = 0;
-
     private boolean isReady = false;
     private boolean isFirstMove = true;
 
@@ -14,16 +12,7 @@ public class Player {
 
     public void reset() {
         moves = 0;
-        counts = 0;
         isReady = false;
-    }
-
-    public void addCounts(int a) {
-        this.counts += a;
-    }
-
-    public void sudCounts(int a) {
-        this.counts -= a;
     }
 
     public void addMoves(int a) {
