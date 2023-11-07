@@ -104,9 +104,15 @@ public class Model {
     }
 
     private boolean checkVictory(Player player) {
-        int[][] cells = gameBoardController.getCells();
         int enemy = (getIndex(player) == 1 ? 2 : 1);
-
+        if (noFindEnemy(enemy)){
+            winner = player.getPlayerName();
+            return true;
+        }
+        return false;
+    }
+    private boolean noFindEnemy(int enemy){
+        int[][] cells = gameBoardController.getCells();
         for (int i = 0; i < cells.length; i++) {
             for (int j = 0; j < cells[i].length; j++) {
                 if (cells[i][j] == enemy) {
@@ -114,10 +120,8 @@ public class Model {
                 }
             }
         }
-        winner = player.getPlayerName();
         return true;
     }
-
     public String getWinner() {
         return winner;
     }

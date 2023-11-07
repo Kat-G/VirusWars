@@ -163,7 +163,7 @@ public class GameUI{
 
     private void checkWinner() {
         if (game_model.getWinner() != null && show_flag) {
-            System.out.println("Winner:" + game_model.getWinner());
+            System.out.println("Победитель:" + game_model.getWinner());
             showWinMessage(game_model.getWinner());
             show_flag = false;
         }

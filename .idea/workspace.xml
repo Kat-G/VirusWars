@@ -4,29 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f090f1be-f324-4ac8-8db7-439dde134d92" name="Changes" comment="Update Client">
+    <list default="true" id="f090f1be-f324-4ac8-8db7-439dde134d92" name="Changes" comment="Update code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/ClientAtServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/ClientAtServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/controllers/GameBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/controllers/GameBoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/controllers/PlayersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/controllers/PlayersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/connect/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/model/ModelBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/model/ModelBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/resp/ClientActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/resp/PlayerActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/resp/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/resp/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/resp/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/resp/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/resp/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/resp/Sender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/ClientAtServer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/connect/ClientAtServer$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/ClientAtServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/connect/ClientAtServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/Controllers/PlayersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/connect/Controllers/PlayersController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/connect/model/Model.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/resp/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/connect/resp/Response.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,17 +38,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/PC/IdeaProjects/SocketShootGame",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/IdeaProjects/SocketShootGame&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="connect" />
@@ -162,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698768795750</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Update code">
+      <created>1699276747206</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699276747206</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,6 +169,7 @@
     <MESSAGE value="Added the end of the game and the determination of the winner" />
     <MESSAGE value="Add connect button and winner-alert" />
     <MESSAGE value="Update Client" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Client" />
+    <MESSAGE value="Update code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update code" />
   </component>
 </project>
