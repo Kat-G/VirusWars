@@ -4,9 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f090f1be-f324-4ac8-8db7-439dde134d92" name="Changes" comment="Update code">
+    <list default="true" id="f090f1be-f324-4ac8-8db7-439dde134d92" name="Changes" comment="final version">
+      <change afterPath="$PROJECT_DIR$/src/main/java/soap/connect/model/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connect/model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/GameUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/ClientAtServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/ClientAtServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/model/ModelBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/model/ModelBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/objects/GameBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/objects/GameBoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/objects/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/objects/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/sender/PlayerActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/sender/PlayerActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/sender/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/sender/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/sender/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/sender/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/sender/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/sender/Sender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/connect/sender/ServReactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/sender/ServReactions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/ClientAtServer$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/ClientAtServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/Controllers/GameBoardController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/Controllers/PlayersController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/model/Model.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/model/ModelBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/resp/PlayerActions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/resp/Request.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/resp/Response.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/resp/Sender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/connect/resp/ServReactions.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,10 +73,11 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/IdeaProjects/SocketShootGame&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/IdeaProjects/VirusWars&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -54,40 +85,84 @@
       <recent name="connect" />
       <recent name="" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\IdeaProjects\VirusWars\src\main\java\soap" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="soap" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Client2">
-    <configuration name="Client1" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="GameUI" />
+  <component name="RunManager" selected="Application.SoapClient2">
+    <configuration name="GameServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="soap.connect.GameServer" />
+      <module name="VirusWars" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="soap.connect.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sockets.connect.Server" />
+      <module name="VirusWars" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sockets.connect.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SoapClient1" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="soap.GameUI" />
       <module name="VirusWars" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Client2" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="GameUI" />
+    <configuration name="SoapClient2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="soap.GameUI" />
       <module name="VirusWars" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Server" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="connect.Server" />
+    <configuration name="SocketClient1" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="sockets.GameUI" />
+      <module name="VirusWars" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SocketClient2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="sockets.GameUI" />
       <module name="VirusWars" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.SoapClient1" />
+      <item itemvalue="Application.SoapClient2" />
+      <item itemvalue="Application.SocketClient2" />
+      <item itemvalue="Application.GameServer" />
       <item itemvalue="Application.Server" />
-      <item itemvalue="Application.Client2" />
-      <item itemvalue="Application.Client1" />
+      <item itemvalue="Application.SocketClient1" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client1" />
+        <item itemvalue="Application.GameServer" />
+        <item itemvalue="Application.Server" />
+        <item itemvalue="Application.SocketClient1" />
       </list>
     </recent_temporary>
   </component>
@@ -149,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699276747206</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="final version">
+      <created>1699374313190</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699374313190</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,6 +252,7 @@
     <MESSAGE value="Add connect button and winner-alert" />
     <MESSAGE value="Update Client" />
     <MESSAGE value="Update code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update code" />
+    <MESSAGE value="final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="final version" />
   </component>
 </project>
