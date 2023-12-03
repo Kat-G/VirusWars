@@ -10,7 +10,6 @@ public class Player {
     private int moves = 0;
     private boolean isReady = false;
     private boolean isFirstMove = true;
-    private String response;
     private int index;
 
     public Player() { }
@@ -57,14 +56,6 @@ public class Player {
 
     public void setFirstMove(boolean firstMove) {
         isFirstMove = firstMove;
-    }
-
-    public String getResponse() {
-        return response;
-    }
-
-    public void setResponse(String response) {
-        this.response = response;
     }
 
     public int getIndex() { return index;  }

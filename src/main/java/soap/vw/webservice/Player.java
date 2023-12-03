@@ -21,7 +21,6 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="moves" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="playerName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="ready" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
- *         &lt;element name="response" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,8 +35,7 @@ import javax.xml.bind.annotation.XmlType;
     "index",
     "moves",
     "playerName",
-    "ready",
-    "response"
+    "ready"
 })
 public class Player {
 
@@ -46,7 +44,6 @@ public class Player {
     protected int moves;
     protected String playerName;
     protected boolean ready;
-    protected String response;
 
     /**
      * Gets the value of the firstMove property.
@@ -134,30 +131,6 @@ public class Player {
      */
     public void setReady(boolean value) {
         this.ready = value;
-    }
-
-    /**
-     * Gets the value of the response property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getResponse() {
-        return response;
-    }
-
-    /**
-     * Sets the value of the response property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setResponse(String value) {
-        this.response = value;
     }
 
 }

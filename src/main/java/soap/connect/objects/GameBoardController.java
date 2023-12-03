@@ -50,7 +50,6 @@ public class GameBoardController {
     }
 
     public void Move(int x, int y, int player, boolean firstMove) {
-        System.out.println("Hello from controller!");
         if (firstMove) {
             if (player == 1) {
                 cells[size-1][0] = player;
@@ -58,13 +57,10 @@ public class GameBoardController {
             else {
                 cells[0][size-1] = player;
             }
-            System.out.println("If-variant " + x + " " + y);
         }
         else {
             int enemy = (player == 1 ? 2 : 1);
-            System.out.println(player + " " + enemy);
             if (isMoveValid(x, y, player)) {
-                System.out.println("move is valid");
                 if (cells[x][y] == 0) {
                     cells[x][y] = player;
                 }
@@ -72,9 +68,8 @@ public class GameBoardController {
                     cells[x][y] = player + 2;
                 }
             }
-            System.out.println("Else-variant" + x + " " + y);
         }
-        displayBoard();
+        //displayBoard();
     }
 
     public void reset() {

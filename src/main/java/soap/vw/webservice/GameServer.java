@@ -26,48 +26,6 @@ public interface GameServer {
 
     /**
      * 
-     */
-    @WebMethod
-    @RequestWrapper(localName = "update", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.Update")
-    @ResponseWrapper(localName = "updateResponse", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.UpdateResponse")
-    @Action(input = "http://connect.soap/GameServer/updateRequest", output = "http://connect.soap/GameServer/updateResponse")
-    public void update();
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns soap.vw.webservice.Player
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findPlayer", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.FindPlayer")
-    @ResponseWrapper(localName = "findPlayerResponse", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.FindPlayerResponse")
-    @Action(input = "http://connect.soap/GameServer/findPlayerRequest", output = "http://connect.soap/GameServer/findPlayerResponse")
-    public Player findPlayer(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
-     * @param arg2
-     * @param arg1
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "setMove", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.SetMove")
-    @ResponseWrapper(localName = "setMoveResponse", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.SetMoveResponse")
-    @Action(input = "http://connect.soap/GameServer/setMoveRequest", output = "http://connect.soap/GameServer/setMoveResponse")
-    public void setMove(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        int arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        String arg2);
-
-    /**
-     * 
      * @return
      *     returns java.lang.String
      */
@@ -98,15 +56,21 @@ public interface GameServer {
 
     /**
      * 
+     * @param arg2
+     * @param arg1
      * @param arg0
      */
     @WebMethod
-    @RequestWrapper(localName = "skipMove", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.SkipMove")
-    @ResponseWrapper(localName = "skipMoveResponse", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.SkipMoveResponse")
-    @Action(input = "http://connect.soap/GameServer/skipMoveRequest", output = "http://connect.soap/GameServer/skipMoveResponse")
-    public void skipMove(
+    @RequestWrapper(localName = "setMove", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.SetMove")
+    @ResponseWrapper(localName = "setMoveResponse", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.SetMoveResponse")
+    @Action(input = "http://connect.soap/GameServer/setMoveRequest", output = "http://connect.soap/GameServer/setMoveResponse")
+    public void setMove(
         @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        int arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2);
 
     /**
      * 
@@ -125,11 +89,26 @@ public interface GameServer {
      * @param arg0
      */
     @WebMethod
-    @RequestWrapper(localName = "sendInfoToClient", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.SendInfoToClient")
-    @ResponseWrapper(localName = "sendInfoToClientResponse", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.SendInfoToClientResponse")
-    @Action(input = "http://connect.soap/GameServer/sendInfoToClientRequest", output = "http://connect.soap/GameServer/sendInfoToClientResponse")
-    public void sendInfoToClient(
+    @RequestWrapper(localName = "skipMove", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.SkipMove")
+    @ResponseWrapper(localName = "skipMoveResponse", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.SkipMoveResponse")
+    @Action(input = "http://connect.soap/GameServer/skipMoveRequest", output = "http://connect.soap/GameServer/skipMoveResponse")
+    public void skipMove(
         @WebParam(name = "arg0", targetNamespace = "")
-        Player arg0);
+        String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns soap.vw.webservice.Player
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findPlayer", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.FindPlayer")
+    @ResponseWrapper(localName = "findPlayerResponse", targetNamespace = "http://connect.soap/", className = "soap.vw.webservice.FindPlayerResponse")
+    @Action(input = "http://connect.soap/GameServer/findPlayerRequest", output = "http://connect.soap/GameServer/findPlayerResponse")
+    public Player findPlayer(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
 
 }

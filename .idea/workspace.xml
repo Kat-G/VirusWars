@@ -4,39 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f090f1be-f324-4ac8-8db7-439dde134d92" name="Changes" comment="final version">
-      <change afterPath="$PROJECT_DIR$/src/main/java/soap/connect/model/Model.java" afterDir="false" />
+    <list default="true" id="f090f1be-f324-4ac8-8db7-439dde134d92" name="Changes" comment="add soap">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/GameUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/ClientAtServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/ClientAtServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/model/ModelBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/model/ModelBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/objects/GameBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/objects/GameBoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/objects/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/objects/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/sender/PlayerActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/sender/PlayerActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/sender/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/sender/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/sender/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/sender/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/sender/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/sender/Sender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connect/sender/ServReactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sockets/connect/sender/ServReactions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameUI$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameUI$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameUI$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/ClientAtServer$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/ClientAtServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/Controllers/GameBoardController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/Controllers/PlayersController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/Server.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/model/Model.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/model/ModelBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/resp/PlayerActions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/resp/Request.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/resp/Response.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/resp/Sender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/connect/resp/ServReactions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/GameUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soap/GameUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/connect/GameServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soap/connect/GameServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/connect/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soap/connect/model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/connect/objects/GameBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soap/connect/objects/GameBoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/connect/objects/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soap/connect/objects/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/connect/sender/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/soap/connect/sender/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/AddClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/AddClientResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/FindPlayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/FindPlayerResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/FirstMove.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/FirstMoveResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/GameServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/GameServerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/ObjectFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/SendInfoToClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/SendInfoToClientResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/SendToClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/SendToClientResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/SetMove.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/SetMoveResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/SkipMove.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/SkipMoveResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/Update.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/UpdateResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/soap/vw/webservice/package-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/VirusWars-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/VirusWars-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/GameUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/GameUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/GameUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/GameUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/connect/GameServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/soap/connect/GameServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/connect/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/soap/connect/model/Model.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/connect/objects/GameBoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/soap/connect/objects/GameBoardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/connect/objects/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/soap/connect/objects/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/connect/sender/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/soap/connect/sender/Response.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/vw/webservice/GameServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/soap/vw/webservice/GameServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/vw/webservice/ObjectFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/soap/vw/webservice/ObjectFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/vw/webservice/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/soap/vw/webservice/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/vw/webservice/SendInfoToClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/vw/webservice/SendInfoToClientResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/vw/webservice/Update.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/soap/vw/webservice/UpdateResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699374313190</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add soap">
+      <created>1701512697635</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701512697635</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -253,6 +275,7 @@
     <MESSAGE value="Update Client" />
     <MESSAGE value="Update code" />
     <MESSAGE value="final version" />
-    <option name="LAST_COMMIT_MESSAGE" value="final version" />
+    <MESSAGE value="add soap" />
+    <option name="LAST_COMMIT_MESSAGE" value="add soap" />
   </component>
 </project>

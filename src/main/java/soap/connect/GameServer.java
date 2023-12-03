@@ -19,15 +19,7 @@ public class GameServer {
     Gson gson = new Gson();
 
     public GameServer()  {
-        game_model.init(this);
-    }
-
-    public void sendInfoToClient(Player player) {
-        Response serverResp = new Response();
-        serverResp.setPlayers(game_model.getClients());
-        serverResp.setGameBoard(game_model.getGameBoard());
-        serverResp.setCurrentPlayer(game_model.getCurrentPlayer());
-        serverResp.setWinner(game_model.getWinner());
+        //game_model.init(this);
     }
 
     @WebMethod
@@ -46,18 +38,11 @@ public class GameServer {
             allClients.add(player);
             game_model.addClient(player);
             firstMove(0,0,player);
-            update();
-            //game_model.getGameBoardController().displayBoard();
             return name;
         }
         else {
             return null;
         }
-    }
-
-    @WebMethod
-    public void update(){
-        allClients.forEach(this::sendInfoToClient);
     }
 
     public Player findPlayer(String playerName) {
@@ -83,19 +68,14 @@ public class GameServer {
 
     public void firstMove(int x, int y, Player player) {
         game_model.firstMove(x, y, player);
-        //update();
     }
     @WebMethod
     public void setMove(int x, int y, String playerName) {
         game_model.setMove(x, y, findPlayer(playerName));
-        //update();
-        //System.out.println(player.getPlayerName() + ": " + player.getMoves() + " moves" );
     }
     @WebMethod
     public void skipMove(String playerName) {
         game_model.skipMove(findPlayer(playerName));
-        //update();
-        //System.out.println(player.getPlayerName() + " skip");
     }
 
     public static void main(String[] args) {

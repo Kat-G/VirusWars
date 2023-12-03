@@ -8,7 +8,6 @@ sockets\connect\model\ModelBuilder.class
 sockets\connect\ClientAtServer.class
 sockets\GameUI$3.class
 soap\connect\GameServer.class
-soap\vw\webservice\UpdateResponse.class
 soap\vw\webservice\FindPlayerResponse.class
 soap\vw\webservice\SetMoveResponse.class
 soap\connect\sender\Response.class
@@ -19,10 +18,8 @@ soap\connect\model\ModelBuilder.class
 soap\vw\webservice\GameServer.class
 sockets\connect\sender\Sender.class
 sockets\connect\ClientAtServer$1.class
-soap\vw\webservice\Update.class
 sockets\GameUI$1.class
 soap\vw\webservice\SkipMoveResponse.class
-soap\vw\webservice\SendInfoToClient.class
 sockets\connect\sender\PlayerActions.class
 soap\vw\webservice\AddClientResponse.class
 sockets\connect\objects\Player.class
@@ -33,7 +30,6 @@ soap\vw\webservice\SendToClientResponse.class
 soap\vw\webservice\ObjectFactory.class
 soap\vw\webservice\FindPlayer.class
 soap\vw\webservice\package-info.class
-soap\vw\webservice\SendInfoToClientResponse.class
 sockets\connect\sender\ServReactions.class
 soap\vw\webservice\SetMove.class
 soap\vw\webservice\FirstMove.class

@@ -13,12 +13,6 @@ public class Model {
 
     private Player currentPlayer;
     private String winner = null;
-    private GameServer s;
-
-
-    public void init(GameServer s) {
-        this.s = s;
-    }
 
     public void start() {
         players.get(0).setReady(true);
@@ -28,8 +22,6 @@ public class Model {
             System.out.println(player.isReady());
 
         if (players.size() == 2){
-            //firstMove(0,0,players.get(0));
-            //firstMove(0,0,players.get(1));
             new Thread(this::gameLoop).start();
         }
     }
@@ -59,25 +51,11 @@ public class Model {
         setCurrentPlayer(nextPlayer);
     }
 
-    /*
-    private int getIndex(Player player){
-
-        if (player.getPlayerName() == "First"){
-            return 1;
-        }
-        else {
-            return 2;
-        }
-    }*/
-
     private void makeMove(int x, int y, Player player) {
         gameBoardController.Move(x, y, player.getIndex(), player.isFirstMove());
-        System.out.println(player.getIndex() + " moves: " + player.getMoves());
         player.addMoves(1);
-        System.out.println("after addMoves - " + player.getIndex() + " moves: " + player.getMoves());
         checkTurn(player);
 
-        //gameBoardController.displayBoard();
 
         if (checkVictory(player)) {
             System.out.println("Winner: " + winner);
@@ -91,26 +69,19 @@ public class Model {
             player.setFirstMove(false);
         }
         checkTurn(player);
-
-        //gameBoardController.displayBoard();
     }
 
     public void skipMove(Player player) {
-        System.out.println(player.getPlayerName() + " in game_board.skipMove!");
         if (player.isReady() && player.getMoves() == 0) {
             setTurnNextPlayer(player);
-            System.out.println("i'm alive");
         }
     }
 
 
     public void setMove(int x, int y, Player player){
-        System.out.println(player.getPlayerName() + " " + player.getIndex() + " in game_board.setMove!");
         if (player.isReady()) {
             makeMove(x,y,player);
-            //System.out.println("i'm alive");
         }
-        //gameBoardController.displayBoard();
     }
 
     private boolean checkVictory(Player player) {

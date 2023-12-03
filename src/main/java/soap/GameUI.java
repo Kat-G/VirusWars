@@ -7,13 +7,11 @@ import soap.connect.model.ModelBuilder;
 import soap.connect.sender.Response;
 import soap.vw.webservice.GameServer;
 import soap.vw.webservice.GameServerService;
-import soap.vw.webservice.Player;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -24,7 +22,7 @@ public class GameUI {
 
     static GameServer service;
 
-    String playerName;// = "Player";
+    String playerName;
     int size = 10;
     boolean show_flag = true;
     private final Model game_model = ModelBuilder.build();
@@ -43,9 +41,7 @@ public class GameUI {
                         game_model.setWinner(resp.getWinner());
                         game_model.setCurrentPlayer(resp.getCurrentPlayer());
 
-                        SwingUtilities.invokeLater(() -> {
-                            updateGameBoard(game_model.getGameBoard());
-                        });
+                        updateGameBoard(game_model.getGameBoard());
                     }
                 }
         ).start();
@@ -155,7 +151,7 @@ public class GameUI {
     private void checkWinner() {
         if (game_model.getWinner() != null && show_flag) {
             show_flag = false;
-            System.out.println("Победитель:" + game_model.getWinner());
+            System.out.println("Winner:" + game_model.getWinner());
             showWinMessage(game_model.getWinner());
         }
     }

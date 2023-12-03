@@ -30,16 +30,12 @@ public class ObjectFactory {
     private final static QName _FindPlayerResponse_QNAME = new QName("http://connect.soap/", "findPlayerResponse");
     private final static QName _FirstMove_QNAME = new QName("http://connect.soap/", "firstMove");
     private final static QName _FirstMoveResponse_QNAME = new QName("http://connect.soap/", "firstMoveResponse");
-    private final static QName _SendInfoToClient_QNAME = new QName("http://connect.soap/", "sendInfoToClient");
-    private final static QName _SendInfoToClientResponse_QNAME = new QName("http://connect.soap/", "sendInfoToClientResponse");
     private final static QName _SendToClient_QNAME = new QName("http://connect.soap/", "sendToClient");
     private final static QName _SendToClientResponse_QNAME = new QName("http://connect.soap/", "sendToClientResponse");
     private final static QName _SetMove_QNAME = new QName("http://connect.soap/", "setMove");
     private final static QName _SetMoveResponse_QNAME = new QName("http://connect.soap/", "setMoveResponse");
     private final static QName _SkipMove_QNAME = new QName("http://connect.soap/", "skipMove");
     private final static QName _SkipMoveResponse_QNAME = new QName("http://connect.soap/", "skipMoveResponse");
-    private final static QName _Update_QNAME = new QName("http://connect.soap/", "update");
-    private final static QName _UpdateResponse_QNAME = new QName("http://connect.soap/", "updateResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: soap.vw.webservice
@@ -97,22 +93,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SendInfoToClient }
-     * 
-     */
-    public SendInfoToClient createSendInfoToClient() {
-        return new SendInfoToClient();
-    }
-
-    /**
-     * Create an instance of {@link SendInfoToClientResponse }
-     * 
-     */
-    public SendInfoToClientResponse createSendInfoToClientResponse() {
-        return new SendInfoToClientResponse();
-    }
-
-    /**
      * Create an instance of {@link SendToClient }
      * 
      */
@@ -158,22 +138,6 @@ public class ObjectFactory {
      */
     public SkipMoveResponse createSkipMoveResponse() {
         return new SkipMoveResponse();
-    }
-
-    /**
-     * Create an instance of {@link Update }
-     * 
-     */
-    public Update createUpdate() {
-        return new Update();
-    }
-
-    /**
-     * Create an instance of {@link UpdateResponse }
-     * 
-     */
-    public UpdateResponse createUpdateResponse() {
-        return new UpdateResponse();
     }
 
     /**
@@ -263,32 +227,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SendInfoToClient }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SendInfoToClient }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://connect.soap/", name = "sendInfoToClient")
-    public JAXBElement<SendInfoToClient> createSendInfoToClient(SendInfoToClient value) {
-        return new JAXBElement<SendInfoToClient>(_SendInfoToClient_QNAME, SendInfoToClient.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SendInfoToClientResponse }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SendInfoToClientResponse }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://connect.soap/", name = "sendInfoToClientResponse")
-    public JAXBElement<SendInfoToClientResponse> createSendInfoToClientResponse(SendInfoToClientResponse value) {
-        return new JAXBElement<SendInfoToClientResponse>(_SendInfoToClientResponse_QNAME, SendInfoToClientResponse.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SendToClient }{@code >}
      * 
      * @param value
@@ -364,32 +302,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://connect.soap/", name = "skipMoveResponse")
     public JAXBElement<SkipMoveResponse> createSkipMoveResponse(SkipMoveResponse value) {
         return new JAXBElement<SkipMoveResponse>(_SkipMoveResponse_QNAME, SkipMoveResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Update }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Update }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://connect.soap/", name = "update")
-    public JAXBElement<Update> createUpdate(Update value) {
-        return new JAXBElement<Update>(_Update_QNAME, Update.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateResponse }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link UpdateResponse }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://connect.soap/", name = "updateResponse")
-    public JAXBElement<UpdateResponse> createUpdateResponse(UpdateResponse value) {
-        return new JAXBElement<UpdateResponse>(_UpdateResponse_QNAME, UpdateResponse.class, null, value);
     }
 
 }

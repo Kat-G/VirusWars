@@ -2,7 +2,6 @@ package soap.connect.sender;
 
 import soap.connect.objects.Player;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Response {
